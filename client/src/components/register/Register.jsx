@@ -30,7 +30,7 @@ function Register() {
       const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/register`, { username, password });
       console.log(response.data);
       alert("User registered successfully");
-      window.location = "/login";
+      navigate("/login");
     } 
     catch (error) {
       alert("Username already exists");
