@@ -244,7 +244,7 @@ function Problem({ isAuthenticated }) {
                         color="primary"
                         rows={10}
                         variant="filled"
-                        sx={{ width: 400, marginTop: 5 }}
+                        sx={{ width: 300, marginTop: 5 }}
                         onChange={(e) => { setuserInput(e.target.value) }}
                     />
 
@@ -255,7 +255,7 @@ function Problem({ isAuthenticated }) {
                         color="primary"
                         rows={10}
                         variant="filled"
-                        sx={{ width: 400, marginTop: 5, ml: 5 }}
+                        sx={{ width: 300, marginTop: 5, ml: 5 }}
                         InputProps={{
                             readOnly: true
                         }}
