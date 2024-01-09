@@ -15,6 +15,7 @@ Currently, it supports three languages :
 1. Register / Login to their accounts.
 2. Access the problemset, leaderboard and profile statistics.
 3. Utilize the online code editor to compile code and submit solutions for various problems.
+4. Create personalized blogs, publish content, and engage with the community by reading other users' blogs.
 
 ### Admin Privileges :
 1. Add new problems to the platform.
