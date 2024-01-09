@@ -11,6 +11,8 @@ import EditProblem from './components/admin/EditProblem';
 import Problem from './components/problem/Problem';
 import UserProfile from './components/userprofile/UserProfile';
 import Leaderboard from './components/leaderboard/Leaderboard';
+import Blogs from './components/blog/Blogs';
+import CreateBlogs from './components/blog/CreateBlogs';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/profile' element={<UserProfile isAuthenticated={isAuthenticated} />} />
+            <Route path='/blogs' element={<Blogs isAuthenticated={isAuthenticated} />} />
+            <Route path='/createblogs' element={<CreateBlogs isAuthenticated={isAuthenticated} />} />
             <Route path='/leaderboard' element={<Leaderboard isAuthenticated={isAuthenticated} />} />
             <Route path='/problem/:id' element={<Problem isAuthenticated={isAuthenticated} />} />
             <Route path='/admin/' element={<AdminHome isAuthenticated={isAuthenticated} />} />

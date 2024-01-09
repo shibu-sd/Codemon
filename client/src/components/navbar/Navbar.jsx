@@ -10,6 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { Avatar } from '@mui/material';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import CreateIcon from '@mui/icons-material/Create';
 
 function Navbar({ isAuthenticated, setisAuthenticated }) {
     const navigate = useNavigate();
@@ -66,8 +67,12 @@ function Navbar({ isAuthenticated, setisAuthenticated }) {
                                     </>
                                 ) : null}
 
-                                {!isAdmin ? <Button color="inherit" sx={{ fontSize: 20, marginRight: 5}} onClick={() => { navigate("/leaderboard") }}>
-                                    <LeaderboardIcon sx={{mr : 1}}></LeaderboardIcon> Leaderboard
+                                {!isAdmin ? <Button color="inherit" sx={{ fontSize: 20, marginRight: 5 }} onClick={() => { navigate("/blogs") }}>
+                                    <CreateIcon sx={{ mr: 1 }}></CreateIcon> Blogs
+                                </Button> : null}
+
+                                {!isAdmin ? <Button color="inherit" sx={{ fontSize: 20, marginRight: 5 }} onClick={() => { navigate("/leaderboard") }}>
+                                    <LeaderboardIcon sx={{ mr: 1 }}></LeaderboardIcon> Leaderboard
                                 </Button> : null}
 
                                 <Button color="inherit" sx={{ fontSize: 20, marginLeft: 1, color: isAdmin ? "red" : "white", textTransform: "none" }} onClick={!isAdmin ? () => { navigate("/profile") } : null} >
