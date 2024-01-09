@@ -92,9 +92,6 @@ function CreateBlogs({ isAuthenticated }) {
                 <Button type="submit" startIcon={<AddIcon />} variant="contained" color="success" size="large" sx={{ mt: 9, fontSize: 18 }} onClick={handleSubmit}>
                     Publish
                 </Button>
-
-                <div dangerouslySetInnerHTML={{ __html: blogData.description }} />
-
             </Container>
         );
     }
