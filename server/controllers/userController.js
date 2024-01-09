@@ -167,7 +167,7 @@ async function compileCode(code, input, language) {
         const response = await axios.request(options);
         return response;
     } catch (error) {
-        console.log(error);
+        throw error;
     }
 }
 
@@ -224,7 +224,7 @@ async function submitCode(req, res) {
                 break;
             }
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
 
