@@ -19,6 +19,14 @@ router.get("/problemset/:id", userAuth.authenticateUser, (req, res) => {
     userController.problemID(req, res);
 });
 
+router.get("/blogs", userAuth.authenticateUser, (req, res) => {
+    userController.getAllBlogs(req, res);
+});
+
+router.post("/publishblog", userAuth.authenticateUser, (req, res) => {
+    userController.publishBlog(req, res);
+});
+
 router.post("/compile", userAuth.authenticateUser, (req, res) => {
     userController.returnCompiledCode(req, res);
 });

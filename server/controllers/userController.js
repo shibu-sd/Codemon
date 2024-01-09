@@ -2,6 +2,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const userAuth = require("../middlewares/userAuth");
 const Problem = require("../models/problemModel");
+const Blog = require("../models/blogModel");
 const axios = require("axios");
 const dotenv = require("dotenv");
 
@@ -83,6 +84,26 @@ async function getAllUsers(req, res) {
     }
 }
 
+async function getAllBlogs(req, res) {
+    try {
+        const blogs = await Blog.find({});
+        res.status(200).json({ blogs })
+    } catch (error) {
+        res.status(400).json({ "message": "cannot get blogs" })
+    }
+}
+
+async function publishBlog(req, res) {
+    const {title, description, author} = req.body;
+    try {
+        const newBlog = new Blog({title, description, author});
+        await newBlog.save();
+        res.status(201).json({message : "Blog published successfully"});
+    } catch (error) {
+        throw error;
+    }
+}
+
 function createrUserProblem(problem) {
     const newProblem = {
         id: problem.id,
@@ -146,7 +167,7 @@ async function compileCode(code, input, language) {
         const response = await axios.request(options);
         return response;
     } catch (error) {
-        throw error;
+        console.log(error);
     }
 }
 
@@ -226,4 +247,4 @@ async function submitCode(req, res) {
     }
 }
 
-module.exports = { userLogin, userRegister, userDetails, getAllUsers, allProblems, problemID, returnCompiledCode, submitCode };
+module.exports = { userLogin, userRegister, userDetails, getAllUsers, getAllBlogs, publishBlog, allProblems, problemID, returnCompiledCode, submitCode };
