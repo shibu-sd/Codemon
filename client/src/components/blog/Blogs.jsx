@@ -39,8 +39,8 @@ function Blogs({ isAuthenticated }) {
                                 - <Typography variant="caption" color="red" sx={{ mt: 1, fontSize: 16 }}>
                                     {blog.author}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary" sx={{ mt: 2, fontSize: 16 }}>
-                                    {blog.description}
+                                <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+                                    <div dangerouslySetInnerHTML={{ __html: blog.description }} />
                                 </Typography>
                             </CardContent>
                         </Card>
