@@ -5,7 +5,7 @@ const Problem = require("../models/problemModel");
 const axios = require("axios");
 const dotenv = require("dotenv");
 
-dotenv.config({path : "../.env"});
+dotenv.config({ path: "../.env" });
 
 async function userExists(username) {
     const user = await User.findOne({ username });
@@ -71,15 +71,15 @@ async function getAllUsers(req, res) {
         const userData = [];
         for (let i = 0; i < users.length; i++) {
             const newUser = {
-                username : users[i].username,
-                problemSolved : users[i].problemSolved.length
+                username: users[i].username,
+                problemSolved: users[i].problemSolved.length
             };
             userData.push(newUser);
         }
         userData.sort((a, b) => b.problemSolved - a.problemSolved);
-        res.status(200).json({userData});
+        res.status(200).json({ userData });
     } catch (error) {
-        res.status(400).json({"message" : "cannot get data"});
+        res.status(400).json({ "message": "cannot get data" });
     }
 }
 
@@ -186,7 +186,17 @@ async function submitCode(req, res) {
     for (let i = 0; i < testCases.length; i++) {
         try {
             const response = await compileCode(code, testCases[i], language);
-            output.push(response.data.output);
+            var newOutput = response.data.output;
+
+            if (newOutput.endsWith('\n')) {
+                newOutput = newOutput.replace(/\n$/, '');
+            }
+            else if (newOutput.endsWith(' ')) {
+                newOutput = newOutput.replace(/ $/, '');
+            }
+
+            output.push(newOutput);
+
             if (output[i] != outputOfTestCases[i]) {
                 matched = false;
                 wrongTestCase = i + 1;
