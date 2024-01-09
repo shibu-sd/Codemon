@@ -60,9 +60,9 @@ function UserProblemset() {
                     {problems.map((problem) => (
                         <TableRow key={problem.id}>
                             <TableCell sx={{ borderRight: '1px solid grey', fontSize: 18 }}>{problem.id}</TableCell>
-                            <TableCell sx={{ borderRight: '1px solid grey' }}> <Button sx={{fontSize : 18}} onClick={() => {navigate("/problem/" + problem.id)}} > {problem.title}  </Button> </TableCell>
+                            <TableCell sx={{ borderRight: '1px solid grey' }}> <Button sx={{fontSize : 18, textDecoration : "underline"}} onClick={() => {navigate("/problem/" + problem.id)}} > {problem.title}  </Button> </TableCell>
                             <TableCell sx={{ borderRight: '1px solid grey', fontSize: 18 }}>{problem.tags.join(', ')}</TableCell>
-                            <TableCell sx={{ borderRight: '1px solid grey', fontSize: 18}}> <Button size="large" variant="contained" color={getDifficulty(problem.difficulty)}>{problem.difficulty}</Button></TableCell>
+                            <TableCell sx={{ borderRight: '1px solid grey', fontSize: 18}}> <Button size="large" variant="contained" color={getDifficulty(problem.difficulty)} onClick={() => {navigate("/problem/" + problem.id)}}>{problem.difficulty}</Button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
