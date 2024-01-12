@@ -1,6 +1,6 @@
 # Codemon - An online coding platform
 
-## Description:
+## Description :
 Codemon stands as an interactive online coding arena, providing users with a dynamic platform to refine their algorithmic skills. Equipped with an intuitive code editor, users can effortlessly write and compile code while witnessing real-time output. The platform extends the opportunity for users to submit solutions to a diverse array of questions, scrutinize their verdicts against multiple test cases, partake in competitive leaderboards, and systematically track their progress over time. It serves as a comprehensive space for coding enthusiasts to enhance their abilities and measure their proficiency in algorithmic problem-solving.
 
 Currently, it supports three languages :
@@ -9,7 +9,7 @@ Currently, it supports three languages :
 3. Python
 
 
-## Features:
+## Features :
 
 ### Users Privileges :
 1. Register / Login to their accounts.
@@ -23,7 +23,7 @@ Currently, it supports three languages :
 3. Modify the existing problems.
 4. Incorporate additional test cases for existing problems.
 
-## Tech Stack
+## Tech Stack :
 ### - Frontend :
   - React JS
 
@@ -31,10 +31,10 @@ Currently, it supports three languages :
   - Node JS | Express framework
   - JWT (JSON Web Tokens) for authentication
 
-### - Database: 
+### - Database : 
   - MongoDB Atlas
 
-## Deployment
+## Deployment :
 A test version of Codemon has been currrently deployed using Render.
 ```
 https://codemon-4m4l.onrender.com/
