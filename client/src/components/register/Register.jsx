@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -11,29 +11,33 @@ import "../../assets/css/Register.css";
 import { Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Register() {
 
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
+    if (!username || !password) {
+      alert("Username / Password cannot be empty");
+      return;
+    }
 
+    setLoading(true);
     try {
-
-      if (!username || !password) {
-        alert("Username / Password cannot be empty");
-        return;
-      }
-
       const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/register`, { username, password });
       console.log(response.data);
       alert("User registered successfully");
       navigate("/login");
-    } 
+    }
     catch (error) {
       alert("Username already exists");
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -52,9 +56,21 @@ function Register() {
           <Box sx={{ marginTop: 3 }}>
             <TextField margin="normal" required fullWidth id="username" name="username" label="Username" type="text" autoFocus onChange={(e) => { setUsername(e.target.value) }} />
             <TextField margin="normal" required fullWidth id="password" name="password" label="Password" type="password" onChange={(e) => { setPassword(e.target.value) }} />
-            <Button  fullWidth variant="contained" sx={{ mt: 4, mb: 3, fontSize: 18, '&:hover': { backgroundColor: "darkgreen" }, backgroundColor: "green" }}
-              onClick={handleRegister}>
-              Register
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 4,
+                mb: 3,
+                fontSize: 18,
+                '&:hover': { backgroundColor: "darkgreen" },
+                backgroundColor: "green",
+                position: "relative",
+              }}
+              onClick={handleRegister}
+              disabled={loading}
+            >
+              {loading ? <CircularProgress size={30} sx={{ color: 'green' }} /> : "Register"}
             </Button>
 
             <center>
@@ -67,7 +83,7 @@ function Register() {
         </Box>
       </Container>
     </div>
-  )
+  );
 }
 
 export default Register;
